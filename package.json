@@ -1,11 +1,28 @@
 {
-  "name": "p2cms",
+  "name": "port2port-frontend-cms",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "apollo-boost": "^0.1.10",
+    "classnames": "^2.2.6",
+    "fontawesome": "^4.7.2",
+    "graphql": "^0.13.2",
+    "graphql-tag": "^2.9.2",
+    "history": "^4.7.2",
+    "install": "^0.12.1",
+    "material-ui": "^0.20.1",
+    "npm": "^6.1.0",
+    "prop-types": "^15.6.2",
     "react": "^16.4.1",
+    "react-apollo": "^2.1.8",
     "react-dom": "^16.4.1",
-    "react-scripts": "1.1.4"
+    "react-loadable": "^5.4.0",
+    "react-redux": "^5.0.7",
+    "react-router": "^4.3.1",
+    "react-router-dom": "^4.3.1",
+    "react-router-redux": "^4.0.8",
+    "react-scripts": "1.1.4",
+    "redux": "^4.0.0"
   },
   "scripts": {
     "start": "react-scripts start",
