@@ -1,7 +1,11 @@
+/* eslint-disable no-script-url, no-unused-vars */
+import 'jquery';
+import 'jquery-slimscroll/jquery.slimscroll.min';
+
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import FlatButton from 'material-ui/FlatButton';
-import 'jquery-slimscroll/jquery.slimscroll.min';
+import $ from 'jquery';
 
 class SidebarContent extends React.Component {
   componentDidMount() {

@@ -2,8 +2,10 @@ import React from 'react';
 import { connect } from 'react-redux';
 import classnames from 'classnames';
 import { Link, withRouter } from 'react-router-dom';
-import APPCONFIG from 'constants/Config';
-import { toggleCollapsedNav } from '../../actions';
+import $ from 'jquery';
+import APPCONFIG from 'constants/config';
+
+import { toggleCollapsedNav } from 'redux/actions/settings';
 import SidenavContent from './SidenavContent';
 
 class Sidebar extends React.Component {

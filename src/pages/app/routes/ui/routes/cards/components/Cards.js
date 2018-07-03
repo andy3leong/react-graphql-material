@@ -1,3 +1,4 @@
+/* eslint-disable no-script-url */
 import React from 'react';
 import {
   Card,
@@ -8,8 +9,8 @@ import {
   CardText,
 } from 'material-ui/Card';
 import FlatButton from 'material-ui/FlatButton';
-import APPCONFIG from 'constants/Config';
 import QueueAnim from 'rc-queue-anim';
+import APPCONFIG from 'constants/config';
 
 const ExpandableCards = () => (
   <article className="article">

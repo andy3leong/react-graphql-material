@@ -2,7 +2,9 @@ import React from 'react';
 import { connect } from 'react-redux';
 import classnames from 'classnames';
 import { Link } from 'react-router-dom';
-import APPCONFIG from 'constants/Config';
+import APPCONFIG from 'constants/config';
+import $ from 'jquery';
+
 import NavLeftList from './NavLeftList';
 import NavRightList from './NavRightList';
 

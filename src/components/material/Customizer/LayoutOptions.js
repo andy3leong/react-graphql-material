@@ -9,7 +9,7 @@ import {
   toggleNavBehind,
   toggleFixedHeader,
   changeSidebarWidth,
-} from '../../actions';
+} from 'redux/actions/settings';
 
 const sideWidthSelectStyle = {
   fontSize: '14px',

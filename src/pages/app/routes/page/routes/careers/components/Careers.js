@@ -1,6 +1,7 @@
+/* eslint-disable no-script-url */
 import React from 'react';
 import RaisedButton from 'material-ui/RaisedButton';
-import APPCONFIG from 'constants/Config';
+import APPCONFIG from 'constants/config';
 import QueueAnim from 'rc-queue-anim';
 
 class Hero extends React.Component {

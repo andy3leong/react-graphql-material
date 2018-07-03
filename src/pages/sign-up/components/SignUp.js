@@ -1,7 +1,7 @@
 import React from 'react';
-import APPCONFIG from 'redux/config';
 import TextField from 'material-ui/TextField';
 import QueueAnim from 'rc-queue-anim';
+import APPCONFIG from 'constants/config';
 
 class SignUp extends React.Component {
   constructor() {

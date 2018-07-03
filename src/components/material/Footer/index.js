@@ -1,5 +1,5 @@
 import React from 'react';
-import APPCONFIG from 'constants/Config';
+import APPCONFIG from 'constants/config';
 
 class Footer extends React.Component {
   render() {

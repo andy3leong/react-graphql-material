@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactEcharts from 'components/ReactECharts';
+import ReactEcharts from 'components/material/ReactECharts';
 import CHARTCONFIG from 'constants/ChartConfig';
 
 const funnel1 = {};

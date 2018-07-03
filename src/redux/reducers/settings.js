@@ -1,4 +1,4 @@
-import APPCONFIG from '../config';
+import APPCONFIG from 'constants/config';
 import {
   TOGGLE_BOXED_LAYOUT,
   TOGGLE_COLLAPSED_NAV,

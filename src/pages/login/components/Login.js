@@ -1,8 +1,8 @@
 import React from 'react';
-import APPCONFIG from 'redux/config';
 import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
 import QueueAnim from 'rc-queue-anim';
+import APPCONFIG from 'constants/config';
 
 class Login extends React.Component {
   constructor() {
