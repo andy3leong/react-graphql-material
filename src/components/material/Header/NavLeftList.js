@@ -10,9 +10,9 @@ const HeaderIconButtonStyle = {
   height: '60px',
 };
 
-const listItemStyle = {
-  paddingLeft: '40px', // 36 + 16, algin with sub list
-};
+// const listItemStyle = {
+//   paddingLeft: '40px', // 36 + 16, algin with sub list
+// };
 
 class NavLeftList extends React.Component {
   handleChange = (event, value) => {

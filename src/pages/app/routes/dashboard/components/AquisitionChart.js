@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactEcharts from 'components/material/ReactECharts';
-import CHARTCONFIG from 'constants/ChartConfig';
+// import CHARTCONFIG from 'constants/ChartConfig';
 
 const data = [
   {

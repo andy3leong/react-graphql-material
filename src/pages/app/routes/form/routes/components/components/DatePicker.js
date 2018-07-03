@@ -1,6 +1,5 @@
 import React from 'react';
 import DatePicker from 'material-ui/DatePicker';
-import TextField from 'material-ui/TextField';
 import Toggle from 'material-ui/Toggle';
 //
 const DatePickerExampleSimple = () => (

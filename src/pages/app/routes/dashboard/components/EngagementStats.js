@@ -60,7 +60,6 @@ const labelBottom = {
   },
 };
 const radius = [65, 70];
-const pie = {};
 
 const pie1 = {};
 const pie2 = {};

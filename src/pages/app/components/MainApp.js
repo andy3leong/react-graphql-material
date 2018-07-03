@@ -50,7 +50,7 @@ let AsyncUI = loadable({
 
 class MainApp extends React.Component {
   render() {
-    const { match, location } = this.props;
+    const { match } = this.props;
 
     return (
       <div className="main-app-container">

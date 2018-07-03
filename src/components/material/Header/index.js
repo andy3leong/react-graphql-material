@@ -1,3 +1,4 @@
+/* eslint-disable no-script-url */
 import React from 'react';
 import { connect } from 'react-redux';
 import classnames from 'classnames';
@@ -21,7 +22,7 @@ class Header extends React.Component {
   }
 
   render() {
-    const { isFixedHeader, colorOption } = this.props;
+    const { colorOption } = this.props;
 
     return (
       <section className="app-header">

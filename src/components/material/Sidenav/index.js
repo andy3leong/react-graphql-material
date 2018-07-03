@@ -1,3 +1,4 @@
+/* eslint-disable no-script-url */
 import React from 'react';
 import { connect } from 'react-redux';
 import classnames from 'classnames';

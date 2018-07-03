@@ -51,16 +51,16 @@ const TableExampleSimple = () => (
 );
 
 // Cmplex example
-const styles = {
-  propContainer: {
-    width: 200,
-    overflow: 'hidden',
-    margin: '20px auto 0',
-  },
-  propToggleHeader: {
-    margin: '20px auto 10px',
-  },
-};
+// const styles = {
+//   propContainer: {
+//     width: 200,
+//     overflow: 'hidden',
+//     margin: '20px auto 0',
+//   },
+//   propToggleHeader: {
+//     margin: '20px auto 10px',
+//   },
+// };
 
 const tableData = [
   {

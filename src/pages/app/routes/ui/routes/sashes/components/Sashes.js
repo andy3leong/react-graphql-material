@@ -1,3 +1,4 @@
+/* eslint-disable no-script-url */
 import React from 'react';
 import classnames from 'classnames';
 import QueueAnim from 'rc-queue-anim';

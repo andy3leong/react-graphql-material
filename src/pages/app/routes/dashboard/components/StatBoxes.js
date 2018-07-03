@@ -1,6 +1,6 @@
 import React from 'react';
-import ReactEcharts from 'components/material/ReactECharts';
-import CHARTCONFIG from 'constants/ChartConfig';
+// import ReactEcharts from 'components/material/ReactECharts';
+// import CHARTCONFIG from 'constants/ChartConfig';
 
 const Statboxes = () => (
   <div className="row">

@@ -9,7 +9,7 @@ import Popover from './Popover';
 import Progress from './Progress';
 import Ribbon from './Ribbon';
 import Snackbar from './Snackbar';
-import Subheader from './Subheader';
+// import Subheader from './Subheader';
 import Tabs from './Tabs';
 import Toolbar from './Toolbar';
 

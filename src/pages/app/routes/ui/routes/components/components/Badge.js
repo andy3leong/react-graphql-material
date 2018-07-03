@@ -1,5 +1,4 @@
 import React from 'react';
-import Badge from 'material-ui/Badge';
 
 const BadgeSection = () => (
   <article className="article">
