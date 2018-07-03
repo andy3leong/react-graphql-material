@@ -4,7 +4,7 @@ import loadable from 'react-loadable';
 import Header from 'components/material/Header';
 import Sidenav from 'components/material/Sidenav';
 import Footer from 'components/material/Footer';
-import Customizer from 'components/material/Customizer';
+// import Customizer from 'components/material/Customizer';
 
 import Dashboard from '../routes/dashboard/';
 // import Chart from '../routes/chart/'
@@ -82,8 +82,7 @@ class MainApp extends React.Component {
             <Footer />
           </div>
         </section>
-
-        <Customizer />
+        {/* <Customizer /> */}
       </div>
     );
   }

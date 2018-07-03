@@ -3,6 +3,7 @@ import IconMenu from 'material-ui/IconMenu';
 import MenuItem from 'material-ui/MenuItem';
 import IconButton from 'material-ui/IconButton/IconButton';
 import { withRouter } from 'react-router-dom';
+import avatar from 'assets/images/g1.jpg';
 
 const ImgIconButtonStyle = {
   width: '60px',
@@ -25,11 +26,7 @@ class NavRightList extends React.Component {
           <IconMenu
             iconButtonElement={
               <IconButton style={ImgIconButtonStyle}>
-                <img
-                  src="assets/images/g1.jpg"
-                  alt=""
-                  className="rounded-circle img30_30"
-                />
+                <img src={avatar} alt="" className="rounded-circle img30_30" />
               </IconButton>
             }
             onChange={this.handleChange}
