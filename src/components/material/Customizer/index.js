@@ -1,8 +1,6 @@
-/* eslint-disable no-script-url */
+/* eslint-disable no-script-url, no-undef */
 import React from 'react';
 import APPCONFIG from 'constants/config';
-import $ from 'jquery';
-import 'jquery-slimscroll/jquery.slimscroll.min';
 import LayoutOptions from './LayoutOptions';
 import ColorOptions from './ColorOptions';
 import ThemeOptions from './ThemeOptions';

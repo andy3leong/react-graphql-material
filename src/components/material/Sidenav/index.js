@@ -1,9 +1,8 @@
-/* eslint-disable no-script-url */
+/* eslint-disable no-script-url, no-undef */
 import React from 'react';
 import { connect } from 'react-redux';
 import classnames from 'classnames';
 import { Link, withRouter } from 'react-router-dom';
-import $ from 'jquery';
 import APPCONFIG from 'constants/config';
 
 import { toggleCollapsedNav } from 'redux/actions/settings';

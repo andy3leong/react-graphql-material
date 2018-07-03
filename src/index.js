@@ -1,13 +1,13 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
-import { Provider } from 'react-redux'
-import { ApolloProvider } from 'react-apollo'
-import { ConnectedRouter } from 'react-router-redux';
-import createHistory from 'history/createHashHistory';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
+import { ApolloProvider } from 'react-apollo';
+import { Router } from 'react-router';
+import createHistory from 'history/createBrowserHistory';
 
 import store from './redux';
-import Routes from './routes'
-import apolloClient from './apollo'
+import Routes from './routes';
+import apolloClient from './apollo';
 
 import registerServiceWorker from './registerServiceWorker';
 
@@ -17,12 +17,12 @@ const history = createHistory();
 ReactDOM.render(
   <ApolloProvider client={apolloClient}>
     <Provider store={store}>
-      <ConnectedRouter history={history}>
-        <Routes history={history} />
-      </ConnectedRouter>
+      <Router history={history}>
+        <Routes />
+      </Router>
     </Provider>
   </ApolloProvider>,
-  document.getElementById('root')
-)
+  document.getElementById('root'),
+);
 
 registerServiceWorker();
