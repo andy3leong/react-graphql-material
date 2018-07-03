@@ -3,12 +3,11 @@ import { connect } from 'react-redux';
 import { changeTheme } from '../../actions';
 
 class ThemeOptions extends React.Component {
-
-  onChange = (e) => {
+  onChange = e => {
     const { handleChange } = this.props;
     const newThemeOption = e.target.value;
     handleChange(newThemeOption);
-  }
+  };
 
   render() {
     const { theme } = this.props;
@@ -21,27 +20,51 @@ class ThemeOptions extends React.Component {
         <div className="row no-margin theme-options clearfix">
           <div className="col-4">
             <label className="theme-option-check">
-              <input type="radio" name="theme" value="dark" checked={theme === 'dark'} onChange={this.onChange} />
+              <input
+                type="radio"
+                name="theme"
+                value="dark"
+                checked={theme === 'dark'}
+                onChange={this.onChange}
+              />
               <span className="theme-option-item bg-color-dark">
-                <span className="overlay"><span className="material-icons">check</span></span>
+                <span className="overlay">
+                  <span className="material-icons">check</span>
+                </span>
                 <span>Dark</span>
               </span>
             </label>
           </div>
           <div className="col-4">
             <label className="theme-option-check">
-              <input type="radio" name="theme" value="gray" checked={theme === 'gray'} onChange={this.onChange} />
+              <input
+                type="radio"
+                name="theme"
+                value="gray"
+                checked={theme === 'gray'}
+                onChange={this.onChange}
+              />
               <span className="theme-option-item bg-color-gray">
-                <span className="overlay"><span className="material-icons">check</span></span>
+                <span className="overlay">
+                  <span className="material-icons">check</span>
+                </span>
                 <span>Gray</span>
               </span>
             </label>
           </div>
           <div className="col-4">
             <label className="theme-option-check">
-              <input type="radio" name="theme" value="light" checked={theme === 'light'} onChange={this.onChange} />
+              <input
+                type="radio"
+                name="theme"
+                value="light"
+                checked={theme === 'light'}
+                onChange={this.onChange}
+              />
               <span className="theme-option-item bg-color-page">
-                <span className="overlay"><span className="material-icons">check</span></span>
+                <span className="overlay">
+                  <span className="material-icons">check</span>
+                </span>
                 <span>Light</span>
               </span>
             </label>
@@ -56,12 +79,12 @@ const mapStateToProps = state => ({
   theme: state.settings.theme,
 });
 const mapDispatchToProps = dispatch => ({
-  handleChange: (themeOption) => {
+  handleChange: themeOption => {
     dispatch(changeTheme(themeOption));
-  }
+  },
 });
 
-module.exports = connect(
+export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  mapDispatchToProps,
 )(ThemeOptions);

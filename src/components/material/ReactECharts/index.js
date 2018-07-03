@@ -16,8 +16,8 @@ class ReactEcharts extends React.Component {
     onChartReady: PropTypes.func,
     showLoading: PropTypes.bool,
     loadingOption: PropTypes.object,
-    onEvents: PropTypes.object
-  }
+    onEvents: PropTypes.object,
+  };
 
   // first add
   componentDidMount() {
@@ -27,11 +27,14 @@ class ReactEcharts extends React.Component {
 
     this.bindEvents(echartObj, onEvents);
     // on chart ready
-    if (typeof this.props.onChartReady === 'function') this.props.onChartReady(echartObj);
+    if (typeof this.props.onChartReady === 'function')
+      this.props.onChartReady(echartObj);
 
     function resize() {
       clearTimeout(reizeEvent);
-      reizeEvent = setTimeout(() => { echartObj.resize(); }, 200);
+      reizeEvent = setTimeout(() => {
+        echartObj.resize();
+      }, 200);
     }
 
     // on resize
@@ -55,10 +58,13 @@ class ReactEcharts extends React.Component {
   bindEvents(instance, events) {
     const loop = function loop(eventName) {
       // ignore the event config which not satisfy
-      if (typeof eventName === 'string' && typeof events[eventName] === 'function') {
+      if (
+        typeof eventName === 'string' &&
+        typeof events[eventName] === 'function'
+      ) {
         // binding event
         instance.off(eventName);
-        instance.on(eventName, (param) => {
+        instance.on(eventName, param => {
           events[eventName](param, instance);
         });
       }
@@ -67,7 +73,6 @@ class ReactEcharts extends React.Component {
     for (const eventName in events) {
       loop(eventName);
     }
-
   }
 
   // render the dom
@@ -75,9 +80,14 @@ class ReactEcharts extends React.Component {
     // init the echart object
     const echartObj = this.getEchartsInstance();
     // set the echart option
-    echartObj.setOption(this.props.option, this.props.notMerge || false, this.props.lazyUpdate || false);
+    echartObj.setOption(
+      this.props.option,
+      this.props.notMerge || false,
+      this.props.lazyUpdate || false,
+    );
     // set loading mask
-    if (this.props.showLoading) echartObj.showLoading(this.props.loadingOption || null);
+    if (this.props.showLoading)
+      echartObj.showLoading(this.props.loadingOption || null);
     else echartObj.hideLoading();
 
     return echartObj;
@@ -86,21 +96,27 @@ class ReactEcharts extends React.Component {
   getEchartsInstance() {
     // return the echart object
     const theme = this.props.theme ? this.props.theme : 'macarons';
-    return echarts.getInstanceByDom(this.echartsDom) || echarts.init(this.echartsDom, theme);
+    return (
+      echarts.getInstanceByDom(this.echartsDom) ||
+      echarts.init(this.echartsDom, theme)
+    );
   }
 
   render() {
     const style = this.props.style || {
-      height: '350px'
+      height: '350px',
     };
     // for render
     return (
       <div
-        ref={(c) => { this.echartsDom = c; }}
+        ref={c => {
+          this.echartsDom = c;
+        }}
         className={this.props.className}
-        style={style} />
+        style={style}
+      />
     );
   }
 }
 
-module.exports = ReactEcharts;
+export default ReactEcharts;

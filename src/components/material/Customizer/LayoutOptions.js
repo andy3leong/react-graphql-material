@@ -8,45 +8,49 @@ import {
   toggleCollapsedNav,
   toggleNavBehind,
   toggleFixedHeader,
-  changeSidebarWidth
+  changeSidebarWidth,
 } from '../../actions';
-
 
 const sideWidthSelectStyle = {
   fontSize: '14px',
   width: '100%',
-  marginTop: '-15px'
+  marginTop: '-15px',
 };
 
 class LayoutOptions extends React.Component {
-
   onToggleFixedHeader = (e, val) => {
     const { handleToggleFixedHeader } = this.props;
     handleToggleFixedHeader(val);
-  }
+  };
 
   onToggleCollapsedNav = (e, val) => {
     const { handleToggleCollapsedNav } = this.props;
     handleToggleCollapsedNav(val);
-  }
+  };
 
   onToggleNavBehind = (e, val) => {
     const { handleToggleNavBehind } = this.props;
     handleToggleNavBehind(val);
-  }
+  };
 
   onToggleBoxedLayout = (e, val) => {
     const { handleToggleBoxedLayout } = this.props;
     handleToggleBoxedLayout(val);
-  }
+  };
 
   onSidebarWidthChange = (e, i, val) => {
     const { handleSidebarWidthChange } = this.props;
     handleSidebarWidthChange(val);
-  }
+  };
 
   render() {
-    const { layoutBoxed, navCollapsed, navBehind, fixedHeader, sidebarWidth } = this.props;
+    const {
+      layoutBoxed,
+      navCollapsed,
+      navBehind,
+      fixedHeader,
+      sidebarWidth,
+    } = this.props;
 
     return (
       <section className="customizer-layout-options">
@@ -54,13 +58,29 @@ class LayoutOptions extends React.Component {
         <div className="divider" />
 
         <div>
-          <Toggle label="Fixed Header" defaultToggled={fixedHeader} onToggle={this.onToggleFixedHeader} />
+          <Toggle
+            label="Fixed Header"
+            defaultToggled={fixedHeader}
+            onToggle={this.onToggleFixedHeader}
+          />
           <div className="divider divider-xs" />
-          <Toggle label="Collapsed Sidebar" toggled={navCollapsed} onToggle={this.onToggleCollapsedNav} />
+          <Toggle
+            label="Collapsed Sidebar"
+            toggled={navCollapsed}
+            onToggle={this.onToggleCollapsedNav}
+          />
           <div className="divider divider-xs" />
-          <Toggle label="Full Width Header" defaultToggled={navBehind} onToggle={this.onToggleNavBehind} />
+          <Toggle
+            label="Full Width Header"
+            defaultToggled={navBehind}
+            onToggle={this.onToggleNavBehind}
+          />
           <div className="divider divider-xs" />
-          <Toggle label="Boxed Layout" defaultToggled={layoutBoxed} onToggle={this.onToggleBoxedLayout} />
+          <Toggle
+            label="Boxed Layout"
+            defaultToggled={layoutBoxed}
+            onToggle={this.onToggleBoxedLayout}
+          />
           <div className="divider divider-xs" />
           <div>
             <SelectField
@@ -69,14 +89,13 @@ class LayoutOptions extends React.Component {
               value={sidebarWidth}
               onChange={this.onSidebarWidthChange}
               style={sideWidthSelectStyle}
-                        >
+            >
               <MenuItem value={'small'} primaryText="Small size" />
               <MenuItem value={'middle'} primaryText="Middle size" />
               <MenuItem value={'large'} primaryText="Large size" />
             </SelectField>
           </div>
         </div>
-
       </section>
     );
   }
@@ -87,27 +106,27 @@ const mapStateToProps = state => ({
   navCollapsed: state.settings.navCollapsed,
   navBehind: state.settings.navBehind,
   fixedHeader: state.settings.fixedHeader,
-  sidebarWidth: state.settings.sidebarWidth
+  sidebarWidth: state.settings.sidebarWidth,
 });
 const mapDispatchToProps = dispatch => ({
-  handleToggleFixedHeader: (isFixedHeader) => {
+  handleToggleFixedHeader: isFixedHeader => {
     dispatch(toggleFixedHeader(isFixedHeader));
   },
-  handleToggleCollapsedNav: (isNavCollapsed) => {
+  handleToggleCollapsedNav: isNavCollapsed => {
     dispatch(toggleCollapsedNav(isNavCollapsed));
   },
-  handleToggleNavBehind: (isNavBehind) => {
+  handleToggleNavBehind: isNavBehind => {
     dispatch(toggleNavBehind(isNavBehind));
   },
-  handleToggleBoxedLayout: (isLayoutBoxed) => {
+  handleToggleBoxedLayout: isLayoutBoxed => {
     dispatch(toggleBoxedLayout(isLayoutBoxed));
   },
-  handleSidebarWidthChange: (sidebarWidth) => {
+  handleSidebarWidthChange: sidebarWidth => {
     dispatch(changeSidebarWidth(sidebarWidth));
-  }
+  },
 });
 
-module.exports = connect(
-    mapStateToProps,
-    mapDispatchToProps
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
 )(LayoutOptions);

@@ -3,20 +3,17 @@ import { connect } from 'react-redux';
 import classnames from 'classnames';
 import { Link, withRouter } from 'react-router-dom';
 import APPCONFIG from 'constants/Config';
-import {
-    toggleCollapsedNav
-} from '../../actions';
+import { toggleCollapsedNav } from '../../actions';
 import SidenavContent from './SidenavContent';
 
 class Sidebar extends React.Component {
-
   componentDidMount() {
     // AutoCloseMobileNav
     const { history } = this.props;
     const $body = $('#body');
 
     if (APPCONFIG.AutoCloseMobileNav) {
-      history.listen((location) => {
+      history.listen(location => {
         setTimeout(() => {
           $body.removeClass('sidebar-mobile-open');
         }, 0);
@@ -24,11 +21,11 @@ class Sidebar extends React.Component {
     }
   }
 
-  onToggleCollapsedNav = (e) => {
+  onToggleCollapsedNav = e => {
     const val = !this.props.navCollapsed;
     const { handleToggleCollapsedNav } = this.props;
     handleToggleCollapsedNav(val);
-  }
+  };
 
   render() {
     const { navCollapsed, colorOption } = this.props;
@@ -42,9 +39,12 @@ class Sidebar extends React.Component {
     return (
       <nav
         className={classnames('app-sidebar', {
-          'bg-color-light': ['31', '32', '33', '34', '35', '36'].indexOf(colorOption) >= 0,
-          'bg-color-dark': ['31', '32', '33', '34', '35', '36'].indexOf(colorOption) < 0 })}
-            >
+          'bg-color-light':
+            ['31', '32', '33', '34', '35', '36'].indexOf(colorOption) >= 0,
+          'bg-color-dark':
+            ['31', '32', '33', '34', '35', '36'].indexOf(colorOption) < 0,
+        })}
+      >
         <section
           className={classnames('sidebar-header', {
             'bg-color-dark': ['11', '31'].indexOf(colorOption) >= 0,
@@ -53,18 +53,54 @@ class Sidebar extends React.Component {
             'bg-color-success': ['13', '23', '33'].indexOf(colorOption) >= 0,
             'bg-color-info': ['14', '24', '34'].indexOf(colorOption) >= 0,
             'bg-color-warning': ['15', '25', '35'].indexOf(colorOption) >= 0,
-            'bg-color-danger': ['16', '26', '36'].indexOf(colorOption) >= 0 })}
-                >
-          <svg className="logo-img logo-react" viewBox="0 0 3925 3525" version="1.1" xmlns="http://www.w3.org/2000/svg">
-            <circle className="react-dot" stroke="none" cx="1960" cy="1760" r="355" />
+            'bg-color-danger': ['16', '26', '36'].indexOf(colorOption) >= 0,
+          })}
+        >
+          <svg
+            className="logo-img logo-react"
+            viewBox="0 0 3925 3525"
+            version="1.1"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <circle
+              className="react-dot"
+              stroke="none"
+              cx="1960"
+              cy="1760"
+              r="355"
+            />
             <g className="react-curve" strokeWidth="170" fill="none">
-              <ellipse cx="2575" cy="545" rx="715" ry="1875" transform="rotate(30)" />
-              <ellipse cx="1760" cy="-1960" rx="715" ry="1875" transform="rotate(90)" />
-              <ellipse cx="-815" cy="-2505" rx="715" ry="1875" transform="rotate(-210)" />
+              <ellipse
+                cx="2575"
+                cy="545"
+                rx="715"
+                ry="1875"
+                transform="rotate(30)"
+              />
+              <ellipse
+                cx="1760"
+                cy="-1960"
+                rx="715"
+                ry="1875"
+                transform="rotate(90)"
+              />
+              <ellipse
+                cx="-815"
+                cy="-2505"
+                rx="715"
+                ry="1875"
+                transform="rotate(-210)"
+              />
             </g>
           </svg>
-          <Link to="/" className="brand">{APPCONFIG.brand}</Link>
-          <a href="javascript:;" className="collapsednav-toggler" onClick={this.onToggleCollapsedNav}>
+          <Link to="/" className="brand">
+            {APPCONFIG.brand}
+          </Link>
+          <a
+            href="javascript:;"
+            className="collapsednav-toggler"
+            onClick={this.onToggleCollapsedNav}
+          >
             {toggleIcon}
           </a>
         </section>
@@ -78,7 +114,9 @@ class Sidebar extends React.Component {
             <li>
               <a target="_blank" href={APPCONFIG.productLink}>
                 <i className="nav-icon material-icons">help</i>
-                <span className="nav-text"><span>Help</span> & <span>Support</span></span>
+                <span className="nav-text">
+                  <span>Help</span> & <span>Support</span>
+                </span>
               </a>
             </li>
           </ul>
@@ -90,17 +128,18 @@ class Sidebar extends React.Component {
 
 const mapStateToProps = state => ({
   navCollapsed: state.settings.navCollapsed,
-  colorOption: state.settings.colorOption
+  colorOption: state.settings.colorOption,
 });
 
 const mapDispatchToProps = dispatch => ({
-  handleToggleCollapsedNav: (isNavCollapsed) => {
+  handleToggleCollapsedNav: isNavCollapsed => {
     dispatch(toggleCollapsedNav(isNavCollapsed));
   },
 });
 
-module.exports = withRouter(connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Sidebar));
-
+export default withRouter(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps,
+  )(Sidebar),
+);
