@@ -9,3 +9,17 @@ export const requestLogin = gql`
     }
   }
 `;
+
+export const requestRegister = gql`
+  mutation requestRegister(
+    $name: String!
+    $email: String!
+    $password: String!
+  ) {
+    Register(name: $name, email: $email, password: $password) {
+      auth
+      token
+      message
+    }
+  }
+`;
