@@ -1,82 +1,13 @@
 import React from 'react';
-import TextField from 'material-ui/TextField';
 import QueueAnim from 'rc-queue-anim';
 import { Link } from 'react-router-dom';
-import { SubmissionError, Field, reduxForm } from 'redux-form';
-
+import { SubmissionError } from 'redux-form';
 import { graphql } from 'react-apollo';
-import gql from 'graphql-tag';
+
+import LoginForm from 'components/forms/login';
+import { requestLogin } from 'components/gqls';
 
 import logo from 'assets/logo.png';
-
-const renderTextField = ({
-  input,
-  label,
-  meta: { touched, error },
-  ...custom
-}) => (
-  <TextField
-    hintText={label}
-    floatingLabelText={label}
-    errorText={touched && error}
-    {...input}
-    {...custom}
-  />
-);
-
-const LoginForm = reduxForm({
-  form: 'login-form',
-  validate: values => {
-    const errors = {};
-    return errors;
-  },
-})(props => {
-  const { handleSubmit, pristine, submitting, error } = props;
-
-  return (
-    <form className="form-horizontal" onSubmit={handleSubmit}>
-      <fieldset>
-        <div className="form-group">
-          <Field
-            name="email"
-            type="email"
-            component={renderTextField}
-            label="Email"
-            fullWidth
-          />
-        </div>
-        <div className="form-group">
-          <Field
-            name="password"
-            type="password"
-            component={renderTextField}
-            label="Password"
-            fullWidth
-          />
-        </div>
-      </fieldset>
-
-      <div className="card-action no-border text-right">
-        <button
-          className="btn-link color-primary"
-          disabled={pristine || submitting}
-        >
-          Login
-        </button>
-      </div>
-    </form>
-  );
-});
-
-const requestLogin = gql`
-  mutation requestLogin($email: String!, $password: String!) {
-    Login(email: $email, password: $password) {
-      auth
-      token
-      message
-    }
-  }
-`;
 
 class Login extends React.Component {
   handleSubmit = values => {
@@ -85,9 +16,8 @@ class Login extends React.Component {
         variables: values,
       })
       .then(({ data }) => {
-        console.log('got data', data);
         throw new SubmissionError({
-          _error: data.Login.message,
+          email: data.Login.message,
         });
       })
       .catch(error => {
@@ -95,7 +25,7 @@ class Login extends React.Component {
           throw error;
         }
         throw new SubmissionError({
-          _error: 'There was an error sending the query',
+          email: 'There was an error sending the query',
         });
       });
   };
