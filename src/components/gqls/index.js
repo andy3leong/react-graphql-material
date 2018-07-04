@@ -23,3 +23,13 @@ export const requestRegister = gql`
     }
   }
 `;
+
+export const checkVerify = gql`
+  query Verify($token: String!) {
+    Verify(token: $token) {
+      _id
+      name
+      email
+    }
+  }
+`;

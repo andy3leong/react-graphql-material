@@ -16,6 +16,8 @@ import PageForgotPassword from './pages/forgot-password/';
 import PageLogin from './pages/login/';
 import PageSignUp from './pages/sign-up/';
 
+import { requiredLogged, visitorsOnly } from 'components/hocs';
+
 // = styles =
 // 3rd
 import 'styles/bootstrap.scss';
@@ -82,7 +84,7 @@ class App extends Component {
             })}
           >
             <Switch>
-              <Route path="/app" component={MainApp} />
+              <Route path="/app" component={requiredLogged(MainApp)} />
               {/* <Route exact path="/404" component={Page404} />
               <Route exact path="/500" component={Page500} />
               <Route exact path="/confirm-email" component={PageConfirmEmail} />
@@ -94,8 +96,12 @@ class App extends Component {
                 path="/forgot-password"
                 component={PageForgotPassword}
               />
-              <Route exact path="/login" component={PageLogin} />
-              <Route exact path="/sign-up" component={PageSignUp} />
+              <Route exact path="/login" component={visitorsOnly(PageLogin)} />
+              <Route
+                exact
+                path="/sign-up"
+                component={visitorsOnly(PageSignUp)}
+              />
               <Redirect exact from="/" to="/app/dashboard" />
             </Switch>
           </div>

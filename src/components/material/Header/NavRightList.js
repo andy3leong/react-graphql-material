@@ -4,6 +4,7 @@ import MenuItem from 'material-ui/MenuItem';
 import IconButton from 'material-ui/IconButton/IconButton';
 import { withRouter } from 'react-router-dom';
 import avatar from 'assets/images/g1.jpg';
+import { CookieStorage } from 'cookie-storage';
 
 const ImgIconButtonStyle = {
   width: '60px',
@@ -17,6 +18,14 @@ const listItemStyle = {
 class NavRightList extends React.Component {
   handleChange = (event, value) => {
     this.props.history.push(value);
+  };
+
+  handleLogout = e => {
+    const cookieStorage = new CookieStorage({
+      path: '/',
+    });
+    cookieStorage.removeItem('p2p-auth');
+    this.props.history.push('/login');
   };
 
   render() {
@@ -49,7 +58,7 @@ class NavRightList extends React.Component {
               leftIcon={<i className="material-icons">person_outline</i>}
             />
             <MenuItem
-              value="/login"
+              onClick={this.handleLogout}
               primaryText="Log Out"
               innerDivStyle={listItemStyle}
               style={{ fontSize: '14px', lineHeight: '48px' }}

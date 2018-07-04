@@ -3,6 +3,8 @@ import QueueAnim from 'rc-queue-anim';
 import { Link } from 'react-router-dom';
 import { SubmissionError } from 'redux-form';
 import { graphql } from 'react-apollo';
+import { withRouter } from 'react-router';
+import { CookieStorage } from 'cookie-storage';
 
 import LoginForm from 'components/forms/login';
 import { requestLogin } from 'components/gqls';
@@ -16,9 +18,17 @@ class Login extends React.Component {
         variables: values,
       })
       .then(({ data }) => {
-        throw new SubmissionError({
-          email: data.Login.message,
-        });
+        if (data.Login.auth === true) {
+          const cookieStorage = new CookieStorage({
+            path: '/',
+          });
+          cookieStorage.setItem('p2p-auth', data.Login.token);
+          this.props.history.replace('/');
+        } else {
+          throw new SubmissionError({
+            email: data.Login.message,
+          });
+        }
       })
       .catch(error => {
         if (error instanceof SubmissionError) {
@@ -53,7 +63,7 @@ class Login extends React.Component {
   }
 }
 
-const GQLLogin = graphql(requestLogin)(Login);
+const GQLLogin = graphql(requestLogin)(withRouter(Login));
 
 export default () => (
   <div className="page-login">

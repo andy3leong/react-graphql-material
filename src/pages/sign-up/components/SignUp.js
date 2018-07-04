@@ -17,8 +17,10 @@ class SignUp extends React.Component {
         variables: values,
       })
       .then(({ data }) => {
-        if (data.Register.auth !== true) {
-          const cookieStorage = new CookieStorage();
+        if (data.Register.auth === true) {
+          const cookieStorage = new CookieStorage({
+            path: '/',
+          });
           cookieStorage.setItem('p2p-auth', data.Register.token);
           this.props.history.replace('/');
         } else {
@@ -38,7 +40,6 @@ class SignUp extends React.Component {
   };
 
   render() {
-    console.log(this.props);
     return (
       <div className="body-inner">
         <div className="card bg-white">
