@@ -37,9 +37,7 @@ class Login extends React.Component {
           <div className="card-content">
             <section className="logo text-center">
               <h1>
-                <Link to="/">
-                  <img src={logo} alt="Logo" width="200px" />
-                </Link>
+                <img src={logo} alt="Logo" width="200px" />
               </h1>
             </section>
             <LoginForm onSubmit={this.handleSubmit} />
