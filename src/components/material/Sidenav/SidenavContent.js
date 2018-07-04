@@ -384,37 +384,37 @@ class SidebarContent extends React.Component {
           </FlatButton>
           <ul>
             <li>
-              <FlatButton className="prepend-icon" href="#/login">
+              <FlatButton className="prepend-icon" href="/login">
                 <span>Login</span>
               </FlatButton>
             </li>
             <li>
-              <FlatButton className="prepend-icon" href="#/sign-up">
+              <FlatButton className="prepend-icon" href="/sign-up">
                 <span>Sign Up</span>
               </FlatButton>
             </li>
             <li>
-              <FlatButton className="prepend-icon" href="#/forgot-password">
+              <FlatButton className="prepend-icon" href="/forgot-password">
                 <span>Forgot Password</span>
               </FlatButton>
             </li>
             <li>
-              <FlatButton className="prepend-icon" href="#/confirm-email">
+              <FlatButton className="prepend-icon" href="/confirm-email">
                 <span>Confirm Email</span>
               </FlatButton>
             </li>
             <li>
-              <FlatButton className="prepend-icon" href="#/lock-screen">
+              <FlatButton className="prepend-icon" href="/lock-screen">
                 <span>Lock Screen</span>
               </FlatButton>
             </li>
             <li>
-              <FlatButton className="prepend-icon" href="#/404">
+              <FlatButton className="prepend-icon" href="/404">
                 <span>404 Error</span>
               </FlatButton>
             </li>
             <li>
-              <FlatButton className="prepend-icon" href="#/500">
+              <FlatButton className="prepend-icon" href="/500">
                 <span>500 Error</span>
               </FlatButton>
             </li>
@@ -443,7 +443,7 @@ class SidebarContent extends React.Component {
               </FlatButton>
             </li>
             <li>
-              <FlatButton className="prepend-icon" href="#/fullscreen">
+              <FlatButton className="prepend-icon" href="/fullscreen">
                 <span>Fullscreen</span>
               </FlatButton>
             </li>

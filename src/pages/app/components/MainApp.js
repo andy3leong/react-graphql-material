@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import loadable from 'react-loadable';
 import Header from 'components/material/Header';
 import Sidenav from 'components/material/Sidenav';
@@ -62,20 +62,25 @@ class MainApp extends React.Component {
           <div className="app-content-wrapper">
             <div className="app-content">
               <div className="full-height">
-                <Route path={`${match.url}/dashboard`} component={Dashboard} />
-                <Route path={`${match.url}/chart`} component={AsyncChart} />
-                <Route
-                  path={`${match.url}/ecommerce`}
-                  component={AsyncECommerce}
-                />
-                <Route path={`${match.url}/form`} component={AsyncForm} />
-                <Route path={`${match.url}/page`} component={AsyncPage} />
-                <Route
-                  path={`${match.url}/pglayout`}
-                  component={AsyncPageLayout}
-                />
-                <Route path={`${match.url}/table`} component={AsyncTable} />
-                <Route path={`${match.url}/ui`} component={AsyncUI} />
+                <Switch>
+                  <Route
+                    path={`${match.url}/dashboard`}
+                    component={Dashboard}
+                  />
+                  <Route path={`${match.url}/chart`} component={AsyncChart} />
+                  <Route
+                    path={`${match.url}/ecommerce`}
+                    component={AsyncECommerce}
+                  />
+                  <Route path={`${match.url}/form`} component={AsyncForm} />
+                  <Route path={`${match.url}/page`} component={AsyncPage} />
+                  <Route
+                    path={`${match.url}/pglayout`}
+                    component={AsyncPageLayout}
+                  />
+                  <Route path={`${match.url}/table`} component={AsyncTable} />
+                  <Route path={`${match.url}/ui`} component={AsyncUI} />
+                </Switch>
               </div>
             </div>
 

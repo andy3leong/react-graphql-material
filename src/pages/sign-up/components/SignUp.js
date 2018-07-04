@@ -2,16 +2,10 @@
 import React from 'react';
 import TextField from 'material-ui/TextField';
 import QueueAnim from 'rc-queue-anim';
-import APPCONFIG from 'constants/config';
+import { Link } from 'react-router-dom';
+import logo from 'assets/logo.png';
 
 class SignUp extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      brand: APPCONFIG.brand,
-    };
-  }
-
   render() {
     return (
       <div className="body-inner">
@@ -19,7 +13,9 @@ class SignUp extends React.Component {
           <div className="card-content">
             <section className="logo text-center">
               <h1>
-                <a href="#/">{this.state.brand}</a>
+                <Link to="/">
+                  <img src={logo} alt="Logo" width="200px" />
+                </Link>
               </h1>
             </section>
 
@@ -55,12 +51,12 @@ class SignUp extends React.Component {
             </form>
           </div>
           <div className="card-action no-border text-right">
-            <a href="#/login" className="color-gray-light">
+            <Link to="/login" className="color-gray-light">
               Login
-            </a>
-            <a href="#/" className="color-primary">
+            </Link>
+            <Link to="/" className="color-primary">
               Sign Up
-            </a>
+            </Link>
           </div>
         </div>
       </div>

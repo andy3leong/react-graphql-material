@@ -3,15 +3,16 @@ import { connect } from 'react-redux';
 import classnames from 'classnames';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
-import { Route, Redirect } from 'react-router-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
+import { withRouter } from 'react-router';
 
 import MainApp from './pages/app/';
 // import Page404 from 'routes/404/'
 // import Page500 from 'routes/500/'
 // import PageConfirmEmail from 'routes/confirm-email/'
-// import PageForgotPassword from 'routes/forgot-password/'
 // import PageFullscreen from 'routes/fullscreen/'
 // import PageLockScreen from 'routes/lock-screen/'
+import PageForgotPassword from './pages/forgot-password/';
 import PageLogin from './pages/login/';
 import PageSignUp from './pages/sign-up/';
 
@@ -54,11 +55,13 @@ class App extends Component {
       default:
         materialUITheme = lightTheme;
     }
-
-    const isRoot = window.location.pathname === '/' ? true : false;
-    if (isRoot) {
-      return <Redirect to={'/app/dashboard'} />;
-    }
+    //
+    // const isRoot = window.location.pathname === '/' ? true : false;
+    // if (isRoot) {
+    //   this.props.history.replace('/app/dashboard');
+    //   return false;
+    //   // return <Redirect to={''} />;
+    // }
 
     return (
       <MuiThemeProvider muiTheme={getMuiTheme(materialUITheme)}>
@@ -78,19 +81,23 @@ class App extends Component {
               'sidebar-lg': sidebarWidth === 'large',
             })}
           >
-            <Route path="/app" component={MainApp} />
-            {/* <Route exact path="/404" component={Page404} />
-            <Route exact path="/500" component={Page500} />
-            <Route exact path="/confirm-email" component={PageConfirmEmail} />
-            <Route
-              exact
-              path="/forgot-password"
-              component={PageForgotPassword}
-            />
-            <Route exact path="/fullscreen" component={PageFullscreen} />
-            <Route exact path="/lock-screen" component={PageLockScreen} /> */}
-            <Route exact path="/login" component={PageLogin} />
-            <Route exact path="/sign-up" component={PageSignUp} />
+            <Switch>
+              <Route path="/app" component={MainApp} />
+              {/* <Route exact path="/404" component={Page404} />
+              <Route exact path="/500" component={Page500} />
+              <Route exact path="/confirm-email" component={PageConfirmEmail} />
+
+              <Route exact path="/fullscreen" component={PageFullscreen} />
+              <Route exact path="/lock-screen" component={PageLockScreen} /> */}
+              <Route
+                exact
+                path="/forgot-password"
+                component={PageForgotPassword}
+              />
+              <Route exact path="/login" component={PageLogin} />
+              <Route exact path="/sign-up" component={PageSignUp} />
+              <Redirect exact from="/" to="/app/dashboard" />
+            </Switch>
           </div>
         </div>
       </MuiThemeProvider>
@@ -107,4 +114,4 @@ const mapStateToProps = state => ({
   theme: state.settings.theme,
 });
 
-export default connect(mapStateToProps)(App);
+export default withRouter(connect(mapStateToProps)(App));
