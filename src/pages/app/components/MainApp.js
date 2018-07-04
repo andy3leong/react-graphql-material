@@ -57,7 +57,7 @@ class MainApp extends React.Component {
         <Sidenav />
 
         <section id="page-container" className="app-page-container">
-          <Header />
+          <Header currentUser={this.props.currentUser} />
 
           <div className="app-content-wrapper">
             <div className="app-content">

@@ -31,6 +31,7 @@ class NavRightList extends React.Component {
   render() {
     return (
       <ul className="list-unstyled float-right">
+        <li style={{ lineHeight: '60px' }}>{this.props.currentUser.email}</li>
         <li style={{ marginRight: '10px' }}>
           <IconMenu
             iconButtonElement={

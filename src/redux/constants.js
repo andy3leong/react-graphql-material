@@ -1,3 +1,7 @@
+// user
+export const SET_USER = 'SET_USER';
+export const UNSET_USER = 'UNSET_USER';
+
 // main
 export const TOGGLE_BOXED_LAYOUT = 'TOGGLE_BOXED_LAYOUT';
 export const TOGGLE_COLLAPSED_NAV = 'TOGGLE_COLLAPSED_NAV';

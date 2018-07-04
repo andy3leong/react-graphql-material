@@ -3,7 +3,7 @@ import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import FlatButton from 'material-ui/FlatButton';
 
-class SidebarContent extends React.Component {
+class SidebarContent extends React.PureComponent {
   componentDidMount() {
     const { history } = this.props;
     const nav = this.nav;
@@ -97,7 +97,7 @@ class SidebarContent extends React.Component {
           <span>Navigation</span>
         </li>
         <li>
-          <FlatButton href="/app/dashboard">
+          <FlatButton containerElement={<Link to="/app/dashboard" />}>
             <i className="nav-icon material-icons">dashboard</i>
             <span className="nav-text">Dashboard</span>
           </FlatButton>
@@ -109,12 +109,18 @@ class SidebarContent extends React.Component {
           </FlatButton>
           <ul>
             <li>
-              <FlatButton className="prepend-icon" href="/app/ui/buttons">
+              <FlatButton
+                className="prepend-icon"
+                containerElement={<Link to="/app/ui/buttons" />}
+              >
                 <span>Buttons</span>
               </FlatButton>
             </li>
             <li>
-              <FlatButton className="prepend-icon" href="/app/ui/cards">
+              <FlatButton
+                className="prepend-icon"
+                containerElement={<Link to="/app/ui/cards" />}
+              >
                 <span>Cards</span>
               </FlatButton>
             </li>

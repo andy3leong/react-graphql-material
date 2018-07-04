@@ -61,7 +61,7 @@ class Header extends React.Component {
           </div>
 
           <div className="top-nav-right">
-            <NavRightList />
+            <NavRightList currentUser={this.props.currentUser} />
           </div>
         </div>
       </section>

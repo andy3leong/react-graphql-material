@@ -16,7 +16,7 @@ import PageForgotPassword from './pages/forgot-password/';
 import PageLogin from './pages/login/';
 import PageSignUp from './pages/sign-up/';
 
-import { requiredLogged, visitorsOnly } from 'components/hocs';
+import { requireLogged, visitorsOnly } from 'components/hocs';
 
 // = styles =
 // 3rd
@@ -84,7 +84,7 @@ class App extends Component {
             })}
           >
             <Switch>
-              <Route path="/app" component={requiredLogged(MainApp)} />
+              <Route path="/app" component={requireLogged(MainApp)} />
               {/* <Route exact path="/404" component={Page404} />
               <Route exact path="/500" component={Page500} />
               <Route exact path="/confirm-email" component={PageConfirmEmail} />

@@ -6,7 +6,7 @@ const cookieStorage = new CookieStorage({
   path: '/',
 });
 
-export const requiredLogged = WrappedComponent => props => {
+export const requireLogged = WrappedComponent => props => {
   const token = cookieStorage.getItem('p2p-auth');
 
   if (!token) {
@@ -29,17 +29,7 @@ export const requiredLogged = WrappedComponent => props => {
           return false;
         }
 
-        // {
-        //   "data": {
-        //     "Verify": {
-        //       "_id": "5b3ceb8163a3753114ac00f3",
-        //       "name": "Andy Leong",
-        //       "email": "andy3leong@gmail.com"
-        //     }
-        //   }
-        // }
-
-        return <WrappedComponent {...props} />;
+        return <WrappedComponent {...props} currentUser={data.Verify} />;
       }}
     </Query>
   );

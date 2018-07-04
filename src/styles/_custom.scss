@@ -16,3 +16,11 @@ button.btn-link {
     outline: none;
   }
 }
+
+.bg-color-info {
+  background-color: #eeeeee;
+
+  &:hover {
+    background-color: #eaebec;
+  }
+}
