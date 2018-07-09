@@ -1,0 +1,26 @@
+button.btn-link {
+  color: #2196F3;
+  font-weight: 500;
+  margin-right: 20px;
+  text-transform: uppercase;
+  text-decoration: none;
+  background-color: transparent;
+  -wekit-appearance: none;
+  appearance: none;
+  border: none;
+
+  &:focus,
+  &:active {
+    -wekkit-appearance: none;
+    appearance: none;
+    outline: none;
+  }
+}
+
+.bg-color-info {
+  background-color: #eeeeee;
+
+  &:hover {
+    background-color: #eaebec;
+  }
+}
